@@ -1,0 +1,161 @@
+@use "../variables/colors.scss" as *;
+
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 200px;
+
+  .input-username {
+    min-width: 500px;
+
+    .text-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      span.error-message {
+        font-size: 14px;
+        color: black;
+      }
+    }
+
+    input {
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+      width: 100%;
+      height: 3rem;
+      border-radius: 6px;
+      border: 1px solid #d3d3d3;
+      outline: none !important;
+
+      &:focus {
+        border: 1px solid $purple;
+      }
+    }
+  }
+
+  .game {
+    h1 {
+      text-align: center;
+      color: $purple;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .text-wrapper {
+      display: flex;
+      justify-content: space-between;
+
+      span.count {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $purple;
+      }
+
+      span.name {
+        color: $purple;
+      }
+    }
+
+    .card {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, min-content);
+      margin-bottom: 1.5rem;
+      border: 1px solid $purple;
+      border-radius: 5px;
+
+      .confetti-explosion {
+        position: absolute;
+        z-index: 100;
+        top: 250px;
+        left: 250px;
+      }
+
+      .square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        border: 1px solid $purple;
+
+        .marked {
+          color: $purple;
+        }
+      }
+
+      .square.row-1 {
+        grid-row-start: 1;
+      }
+
+      .square.row-2 {
+        grid-row-start: 2;
+      }
+
+      .square.row-3 {
+        grid-row-start: 3;
+      }
+
+      .square.row-4 {
+        grid-row-start: 4;
+      }
+
+      .square.row-5 {
+        grid-row-start: 5;
+      }
+
+      .square.col-1 {
+        grid-column-start: 1;
+      }
+
+      .square.col-2 {
+        grid-column-start: 2;
+      }
+
+      .square.col-3 {
+        grid-column-start: 3;
+      }
+
+      .square.col-4 {
+        grid-column-start: 4;
+      }
+
+      .square.col-5 {
+        grid-column-start: 5;
+      }
+
+      .square.col-1.row-1 {
+        border-top-left-radius: 3px;
+      }
+
+      .square.col-5.row-1 {
+        border-top-right-radius: 3px;
+      }
+
+      .square.col-1.row-5 {
+        border-bottom-left-radius: 3px;
+      }
+
+      .square.col-5.row-5 {
+        border-bottom-right-radius: 3px;
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    min-width: 250px;
+    height: 3rem;
+    border: none;
+    font-weight: 600;
+    background: $purple;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+}
