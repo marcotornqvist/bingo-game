@@ -9,7 +9,8 @@
   padding-bottom: 200px;
 
   .input-username {
-    min-width: 500px;
+    max-width: 500px;
+    margin: 0 auto;
 
     .text-wrapper {
       display: flex;
@@ -64,10 +65,9 @@
     .card {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(5, min-content);
+      grid-template-columns: repeat(5, 1fr);
       margin-bottom: 1.5rem;
       border: 1px solid $purple;
-      border-radius: 5px;
 
       .confetti-explosion {
         position: absolute;
@@ -80,8 +80,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100px;
-        height: 100px;
+        min-width: 100%;
+        height: 75px;
         border: 1px solid $purple;
 
         .marked {
@@ -129,21 +129,21 @@
         grid-column-start: 5;
       }
 
-      .square.col-1.row-1 {
-        border-top-left-radius: 3px;
-      }
+      // .square.col-1.row-1 {
+      //   border-top-left-radius: 3px;
+      // }
 
-      .square.col-5.row-1 {
-        border-top-right-radius: 3px;
-      }
+      // .square.col-5.row-1 {
+      //   border-top-right-radius: 3px;
+      // }
 
-      .square.col-1.row-5 {
-        border-bottom-left-radius: 3px;
-      }
+      // .square.col-1.row-5 {
+      //   border-bottom-left-radius: 3px;
+      // }
 
-      .square.col-5.row-5 {
-        border-bottom-right-radius: 3px;
-      }
+      // .square.col-5.row-5 {
+      //   border-bottom-right-radius: 3px;
+      // }
     }
   }
 
@@ -157,5 +157,22 @@
     color: white;
     cursor: pointer;
     border-radius: 3px;
+  }
+}
+
+@media screen and (min-width: 532px) {
+  .landing .game {
+    max-width: 500px;
+    margin: 0 auto;
+
+    .card {
+      max-width: 500px;
+      grid-template-columns: repeat(5, min-content);
+
+      .square {
+        height: 100px;
+        width: 100px;
+      }
+    }
   }
 }
