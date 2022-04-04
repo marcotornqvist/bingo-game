@@ -3,7 +3,7 @@ import { ISquare } from "../types";
 
 const Square = ({ number, row, column, marked }: ISquare) => {
   return (
-    <div className={`square col-${column} row-${row}`}>
+    <div className={`square col-${column} row-${row}`} role="square">
       <h3>
         {number === 0 ? (
           "FREE"

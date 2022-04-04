@@ -31,30 +31,32 @@ const matrixLeftToRightDown = [
 
 const Card = ({ initialCard, numbers, bingo, setBingo }: IProps) => {
   // Creates a new card and changes marked values to true if included in the numbers array
-  const card: ISquare[] = initialCard.map((el) => ({
+  const card: ISquare[] = initialCard?.map((el) => ({
     ...el,
     marked: numbers.includes(el.number),
   }));
 
   // Returns only the objects that have a marked value of true
-  const marked = card.filter((item) => item.marked === true);
+  const marked = card?.filter((item) => item.marked === true);
 
   useEffect(() => {
-    const vertical = checkVertical(marked);
-    const horizontal = checkHorizontal(marked);
-    const diagonal =
-      checkDiagonal(marked, matrixLeftToRightDown) ||
-      checkDiagonal(marked, matrixRightToLeftDown);
+    if (marked) {
+      const vertical = checkVertical(marked);
+      const horizontal = checkHorizontal(marked);
+      const diagonal =
+        checkDiagonal(marked, matrixLeftToRightDown) ||
+        checkDiagonal(marked, matrixRightToLeftDown);
 
-    if (vertical || horizontal || diagonal) {
-      setBingo(true);
+      if (vertical || horizontal || diagonal) {
+        setBingo(true);
+      }
     }
   }, [marked]);
 
   return (
     <div className="card bingo-card">
       <ConfettiExplosion bingo={bingo} />
-      {card.map(({ number, column, row, marked }, index) => (
+      {card?.map(({ number, column, row, marked }, index) => (
         <Square
           key={index}
           number={number}
